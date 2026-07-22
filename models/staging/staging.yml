@@ -1,1 +1,124 @@
+version: 2
 
+models:
+  - name: stg_google_ads
+    description: "Cleaned Google Ads campaign performance data."
+    columns:
+      - name: campaign_id
+        tests:
+          - not_null
+
+      - name: campaign_name
+        tests:
+          - not_null
+
+      - name: spend
+        tests:
+          - not_null
+
+      - name: impressions
+        tests:
+          - not_null
+
+      - name: clicks
+        tests:
+          - not_null
+
+      - name: campaign_date
+        tests:
+          - not_null
+
+      - name: channel
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['google']
+
+  - name: stg_meta_ads
+    description: "Cleaned Meta Ads campaign performance data."
+    columns:
+      - name: campaign_id
+        tests:
+          - not_null
+
+      - name: campaign_name
+        tests:
+          - not_null
+
+      - name: spend
+        tests:
+          - not_null
+
+      - name: impressions
+        tests:
+          - not_null
+
+      - name: clicks
+        tests:
+          - not_null
+
+      - name: campaign_date
+        tests:
+          - not_null
+
+      - name: channel
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['meta']
+
+  - name: stg_customers
+    description: "Cleaned customer profile data."
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+      - name: signup_date
+        tests:
+          - not_null
+
+      - name: country
+        tests:
+          - not_null
+
+      - name: device_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['mobile', 'desktop', 'tablet']
+
+  - name: stg_conversions
+    description: "Cleaned customer conversion and revenue data."
+    columns:
+      - name: conversion_id
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+
+      - name: conversion_time
+        tests:
+          - not_null
+
+      - name: conversion_date
+        tests:
+          - not_null
+
+      - name: conversion_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['signup', 'deposit', 'purchase', 'subscription']
+
+      - name: revenue
+        tests:
+          - not_null
