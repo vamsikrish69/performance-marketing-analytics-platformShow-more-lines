@@ -1,1 +1,54 @@
+version: 2
 
+models:
+  - name: stg_google_ads
+    description: "Cleaned Google Ads campaign performance data."
+    columns:
+      - name: campaign_id
+        tests:
+          - not_null
+      - name: campaign_name
+        tests:
+          - not_null
+      - name: channel
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['google']
+
+  - name: stg_meta_ads
+    description: "Cleaned Meta Ads campaign performance data."
+    columns:
+      - name: campaign_id
+        tests:
+          - not_null
+      - name: campaign_name
+        tests:
+          - not_null
+      - name: channel
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['meta']
+
+  - name: stg_customers
+    description: "Cleaned customer profile data."
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_conversions
+    description: "Cleaned customer conversion and revenue data."
+    columns:
+      - name: conversion_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+      - name: campaign_id
+        tests:
+          - not_null
