@@ -1,21 +1,21 @@
 # dbt Build Success
 
-This section contains screenshots showing successful execution of the complete dbt project build.
+This folder contains screenshots demonstrating successful execution of the complete dbt pipeline.
 
-The screenshots demonstrate:
+Build Results:
 
-- Successful seed execution
-- Successful model execution
-- Successful test execution
-- End-to-end pipeline validation
+- 83 Passed
+- 0 Warnings
+- 0 Errors
+- 0 Skipped
 
-Expected evidence:
+The successful dbt build validates:
 
-- Pass count
-- Error count
-- Skip count
-- Overall build status
+- Seed execution
+- Staging models
+- Intermediate models
+- Mart models
+- Data quality tests
+- End-to-end dependency flow
 
-Purpose:
-
-To validate that the entire analytics pipeline executes successfully from source data to business-facing marts.
+This confirms that the Performance Marketing Analytics Platform executes successfully from raw source data to business-facing reporting models.
